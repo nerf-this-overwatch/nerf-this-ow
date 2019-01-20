@@ -13,7 +13,7 @@ const PodcastCoverWidget = () => {
   const [guest, setGuest] = useState('');
   const [image, setImage] = useState();
   const coverRef = useRef();
-  const [generateImage] = useImageGeneration(coverRef, `nerf-this-episode-${number}`, { width: 1000, height: 1000 });
+  const [generateImage] = useImageGeneration(coverRef, `nerf-this-episode-${number}`, { width: 500, height: 500 });
 
   return (
     <WidgetLayout>

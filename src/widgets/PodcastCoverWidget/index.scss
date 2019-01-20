@@ -1,0 +1,12 @@
+.cover__image-wrapper {
+  display: block;
+  height: 100%;
+  pointer-events: all;
+}
+
+.cover__image {
+  pointer-events: none;
+  height: 100%;
+  z-index: 0;
+  user-select: none;
+}

@@ -1,0 +1,45 @@
+@import '../../style/colors';
+
+.button {
+  --color: #{$purple};
+  --bg-color: #{$white};
+  font-size: 1em;
+  padding: 0.6em;
+  border: 0;
+  color: var(--color);
+  border: 2px solid;
+  cursor: pointer;
+  background-color: var(--bg-color);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--color);
+    border-color: var(--color);
+    color: var(--bg-color);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px $white, 0 0 0 5px $pink;
+
+    &:active {
+      box-shadow: 0 0 0 1px $white, 0 0 0 6px $pink;
+    }
+  }
+};
+
+.button--primary {
+  --color: #{$white};
+  --bg-color: #{$purple};
+  border-color: var(--bg-color);
+
+  &:hover,
+  &:focus,
+  &:active {
+    --bg-color: #{$pink};
+    color: var(--color);
+    background-color: var(--bg-color);
+    border-color: var(--bg-color);
+  }
+}

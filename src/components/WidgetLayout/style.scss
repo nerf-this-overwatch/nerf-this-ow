@@ -1,0 +1,16 @@
+@import '../../style/colors';
+
+.widget-layout {
+  display: flex;
+  align-items: center;
+}
+
+.widget-layout__preview {
+  pointer-events: none;
+  user-select: none;
+}
+
+.widget-layout__form {
+  max-width: 300px;
+  margin-left: 1rem;
+}

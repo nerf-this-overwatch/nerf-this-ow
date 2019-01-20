@@ -1,0 +1,54 @@
+{
+  "name": "miniature-maker",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@storybook/cli": "^4.0.7",
+    "classnames": "^2.2.6",
+    "dom-to-image": "^2.6.0",
+    "node-sass": "^4.10.0",
+    "prop-types": "^15.6.2",
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0",
+    "react-draggable": "^3.0.5",
+    "react-scripts": "2.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "pretty": "prettier-eslint --write 'src/**/*.{js,jsx}'",
+    "lint": "./node_modules/.bin/eslint ./src",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@storybook/addon-actions": "^4.0.7",
+    "@storybook/addon-backgrounds": "^4.1.4",
+    "@storybook/addon-links": "^4.0.7",
+    "@storybook/addons": "^4.0.7",
+    "@storybook/react": "^4.0.7",
+    "babel-loader": "^8.0.4",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-html": "^5.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.1.4",
+    "prettier": "^1.15.2",
+    "prettier-eslint-cli": "^4.7.1"
+  }
+}

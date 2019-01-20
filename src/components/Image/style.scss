@@ -1,0 +1,34 @@
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  pointer-events: all;
+  cursor: move;
+}
+
+.image--x {
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.image--y {
+  width: 100%;
+  cursor: ns-resize;
+}
+
+.image__source {
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+.image--x .image__source {
+  height: 100%;
+}
+
+.image--y .image__source {
+  width: 100%;
+}

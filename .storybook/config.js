@@ -1,5 +1,6 @@
 import { configure, addDecorator } from '@storybook/react';
 import { withBackgrounds } from '@storybook/addon-backgrounds';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import '../src/style/font.scss';
 import '../src/style/base.scss';
@@ -15,6 +16,7 @@ addDecorator(
   ])
 );
 
+addDecorator(withKnobs);
 
 // Load dynamically stories
 

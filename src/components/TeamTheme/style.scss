@@ -1,0 +1,46 @@
+.team-theme {
+  --bg-color: var(--primary-color);
+  --color: var(--contrast-primary-color);
+  --accent-color: var(--secondary-color);
+  background-color: var(--bg-color);
+  color: var(--color);
+  padding: 1rem;
+}
+
+.team-theme--fusion {
+  --accent-color: var(--tertiary-color);
+}
+
+.team-theme--excelsior {
+  --accent-color: var(--tertiary-color);
+}
+
+.team-theme--shock {
+  --bg-color: var(--secondary-color);
+  --color: var(--contrast-secondary-color);
+  --accent-color: var(--tertiary-color);
+}
+
+.team-theme--valiant {
+  --accent-color: var(--tertiary-color);
+}
+
+.team-theme--gladiators {
+  --accent-color: var(--tertiary-color);
+}
+
+.team-theme--hunters {
+  --accent-color: var(--tertiary-color);
+}
+
+.team-theme--eternal {
+  --accent-color: var(--tertiary-color);
+}
+
+.team-theme--justice {
+  --accent-color: var(--tertiary-color);
+}
+
+.team-theme--charge {
+  --accent-color: var(--tertiary-color);
+}

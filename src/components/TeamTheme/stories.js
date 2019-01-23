@@ -13,7 +13,7 @@ stories.add('default', () => {
 
   return (
     <PlayersRating teamId={team}>
-      <div style={{ padding: '1rem' }}>
+      <div style={{ padding: '1rem', backgroundColor: 'var(--bg-color)', color: 'var(--color)' }}>
         {teamInfo.cityName}{' '}
         <span style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>{teamInfo.teamName}</span>
       </div>

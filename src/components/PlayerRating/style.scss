@@ -1,0 +1,46 @@
+.player-rating {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.player-rating__infos {
+  flex-grow: 1;
+}
+
+.player-rating__infos-top {
+  display: flex;
+  align-items: flex-end;
+}
+
+.player-rating__number,
+.player-rating__name {
+  font-size: 1.25em;
+  font-style: italic;
+  display: inline-block;
+  letter-spacing: 0.0015em;
+  font-family: 'Peace Sans';
+}
+
+.player-rating__number {
+  width: 1.2945em;
+  margin-right: 0.35em;
+  color: var(--accent-color);
+}
+
+.player-rating__nationality {
+  margin-right: 0.1875em;
+  display: inline-block;
+}
+
+.player-rating__position {
+  font-size: 0.875em;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 1.214285714;
+}
+
+.player-rating__right-col {
+  flex-grow: 0;
+}

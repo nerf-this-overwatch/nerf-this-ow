@@ -6,6 +6,7 @@
     "@storybook/cli": "^4.1.7",
     "chroma-js": "^2.0.2",
     "classnames": "^2.2.6",
+    "country-code-emoji": "0.0.1",
     "dom-to-image": "^2.6.0",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",

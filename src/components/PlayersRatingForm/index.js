@@ -18,6 +18,7 @@ const defaultPlayersState = (teamId, teams) => {
         name: player.name,
         playerNumber: player.attributes.player_number,
         nationality: player.nationality,
+        isDramaQueen: false,
       },
     }),
     {}
@@ -52,6 +53,16 @@ const PlayersRatingForm = ({ teamId, onChange }) => {
     });
   };
 
+  const onDramaQueenChange = (id, event) => {
+    setPlayersData({
+      ...playersData,
+      [id]: {
+        ...playersData[id],
+        isDramaQueen: event.target.checked,
+      },
+    });
+  };
+
   return (
     <form>
       {Object.keys(playersData).map(playerId => {
@@ -70,6 +81,15 @@ const PlayersRatingForm = ({ teamId, onChange }) => {
             </select>
 
             <input type="range" min={1} max={5} value={player.rate} onChange={onRateChange.bind(null, player.id)} />
+
+            <label>
+              dramaqueen ?
+              <input
+                type="checkbox"
+                checked={player.isDramaQueen}
+                onChange={onDramaQueenChange.bind(null, player.id)}
+              />
+            </label>
           </fieldset>
         );
       })}

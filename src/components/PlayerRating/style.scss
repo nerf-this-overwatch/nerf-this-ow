@@ -34,6 +34,18 @@
   display: inline-block;
 }
 
+.player-rating__name {
+  position: relative;
+}
+
+.player-rating__drama-img {
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  transform: translate(5px, 10px);
+}
+
+
 .player-rating__position {
   font-size: 0.875em;
   font-weight: bold;

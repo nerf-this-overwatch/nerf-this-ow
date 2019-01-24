@@ -19,14 +19,9 @@ const PlayersRating = ({ players = {} }) => {
 
     return {
       ...acc,
-      [player.position]: [...acc[player.position], player].sort((playerA, playerB) => {
-        console.log(playerA.rate, playerB.rate);
-        return playerB.rate - playerA.rate;
-      }),
+      [player.position]: [...acc[player.position], player].sort((playerA, playerB) => playerB.rate - playerA.rate),
     };
   }, emptyPosObjPlayers);
-
-  console.log(posObjPlayers);
 
   return (
     <div className="players-rating">
@@ -39,6 +34,7 @@ const PlayersRating = ({ players = {} }) => {
             nationality={player.nationality}
             position={player.position}
             rate={player.rate}
+            isDramaQueen={player.isDramaQueen}
           />
         ))
       )}

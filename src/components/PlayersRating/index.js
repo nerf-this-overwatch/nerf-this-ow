@@ -1,35 +1,52 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ApiContext from '../../containers/ApiContext';
 
 import './style.scss';
 import PlayerRating from '../PlayerRating';
+import positions from '../../data/positions';
 
-const PlayersRating = ({ teamId }) => {
-  const { teams } = useContext(ApiContext);
-  const { players } = teams.competitors.find(({ competitor }) => competitor.id === teamId).competitor;
+const PlayersRating = ({ players = {} }) => {
+  const emptyPosObjPlayers = positions.reduce(
+    (acc, pos) => ({
+      ...acc,
+      [pos]: [],
+    }),
+    {}
+  );
+
+  const posObjPlayers = Object.keys(players).reduce((acc, playerId) => {
+    const player = players[playerId];
+
+    return {
+      ...acc,
+      [player.position]: [...acc[player.position], player].sort((playerA, playerB) => {
+        console.log(playerA.rate, playerB.rate);
+        return playerB.rate - playerA.rate;
+      }),
+    };
+  }, emptyPosObjPlayers);
+
+  console.log(posObjPlayers);
 
   return (
     <div className="players-rating">
-      {players.map(({ player }) => {
-        console.log(player);
-        return (
+      {positions.map(position =>
+        posObjPlayers[position].map(player => (
           <PlayerRating
             key={player.id}
             name={player.name}
-            playerNumber={player.attributes.player_number}
+            playerNumber={player.playerNumber}
             nationality={player.nationality}
-            position={player.attributes.role}
-            rate={3}
+            position={player.position}
+            rate={player.rate}
           />
-        );
-      })}
+        ))
+      )}
     </div>
   );
 };
-
-PlayerRating.propTypes = {
-  teamId: PropTypes.number.isRequired,
+PlayersRating.propTypes = {
+  players: PropTypes.object,
 };
 
 export default PlayersRating;

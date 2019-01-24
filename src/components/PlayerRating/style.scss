@@ -41,6 +41,10 @@
   letter-spacing: 1.214285714;
 }
 
-.player-rating__right-col {
+.player-rating__stars {
   flex-grow: 0;
+}
+
+.player-rating__stars path {
+  fill: var(--accent-color);
 }

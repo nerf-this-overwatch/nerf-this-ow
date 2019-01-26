@@ -1,4 +1,0 @@
-window.onbeforeunload = function (e) {
-  console.log(e);
-  return 'Are you sure you want to leave?';
-};

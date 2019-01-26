@@ -6,7 +6,7 @@ import xqcEmote from './xqc-emote.png';
 import Rating from '../Rating';
 import './style.scss';
 
-const PlayerRating = ({ playerNumber, name, position, rate, nationality, isDramaQueen }) => (
+const PlayerRating = ({ playerNumber, name, role, rate, nationality, isDramaQueen }) => (
   <div className="player-rating">
     <div className="player-rating__infos">
       <div className="player-rating__infos-top">
@@ -20,7 +20,7 @@ const PlayerRating = ({ playerNumber, name, position, rate, nationality, isDrama
         </span>
       </div>
 
-      <div className="player-rating__position">{position}</div>
+      <div className="player-rating__role">{role}</div>
     </div>
 
     <div className="player-rating__stars">

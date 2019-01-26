@@ -24,7 +24,7 @@ const PlayersRating = ({ players = {}, teamId }) => {
 
     return {
       ...acc,
-      [player.position]: [...acc[player.position], player].sort((playerA, playerB) => playerB.rate - playerA.rate),
+      [player.role]: [...acc[player.role], player].sort((playerA, playerB) => playerB.rate - playerA.rate),
     };
   }, emptyPosObjPlayers);
 
@@ -88,7 +88,7 @@ const PlayersRating = ({ players = {}, teamId }) => {
               name={player.name}
               playerNumber={player.playerNumber}
               nationality={player.nationality}
-              position={player.position}
+              role={player.role}
               rate={player.rate}
               isDramaQueen={player.isDramaQueen}
             />

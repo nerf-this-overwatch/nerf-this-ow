@@ -13,9 +13,9 @@ const defaultPlayersState = (teamId, teams) => {
       ...acc,
       [player.id]: {
         id: player.id,
-        position: positions[0],
         rate: 3,
         name: player.name,
+        role: player.attributes.role,
         playerNumber: player.attributes.player_number,
         nationality: player.nationality,
         isDramaQueen: false,
@@ -72,13 +72,7 @@ const PlayersRatingForm = ({ teamId, onChange }) => {
           <fieldset key={player.id}>
             <span>{player.name}</span>
 
-            <select value={player.position} onChange={onPositionChange.bind(null, player.id)}>
-              {positions.map(position => (
-                <option key={position} value={position}>
-                  {position}
-                </option>
-              ))}
-            </select>
+            <span>{player.role}</span>
 
             <input type="range" min={1} max={5} value={player.rate} onChange={onRateChange.bind(null, player.id)} />
 

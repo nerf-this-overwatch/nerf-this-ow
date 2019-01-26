@@ -12,15 +12,15 @@ export default {
 
   /* New York Excelsior */
   4093: 'Main tank' /* Mano */,
-  4099: 'Main tank' /* Saebyeolbe */,
+  4099: 'Hitscan DPS' /* Saebyeolbe */,
   4649: 'Off tank' /* Meko */,
-  4650: 'Main tank' /* Pine */,
+  4650: 'Hitscan DPS' /* Pine */,
   4652: 'Main healer' /* Ark */,
   4653: 'Flex support' /* Jjonak */,
   4654: 'Projectiles DPS' /* Libero */,
   4841: 'Main healer' /* Anamo */,
   8235: 'Flex DPS' /* Fl0w3R */,
-  8236: 'Main tank' /* Nenne */,
+  8236: 'Hitscan DPS' /* Nenne */,
 
   /* San Francisco Shock */
   4139: 'Flex DPS' /* sinatraa */,

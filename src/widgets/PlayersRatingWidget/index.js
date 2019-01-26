@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 
 import { teamIds } from '../../data/teams';
-import PlayersRatingForm from '../PlayersRatingForm';
-import TeamTheme from '../TeamTheme';
-import PlayersRating from '../PlayersRating';
+import PlayersRatingForm from '../../components/PlayersRatingForm';
+import TeamTheme from '../../components/TeamTheme';
+import PlayersRating from '../../components/PlayersRating';
+import WidgetLayout, { WidgetLayoutPreview, WidgetLayoutForm } from '../../components/WidgetLayout';
 
 const PlayersRatingWidget = () => {
   const [teamId, setTeamId] = useState(parseInt(Object.values(teamIds)[0]));
   const [players, setPlayers] = useState();
 
   return (
-    <div>
-      <TeamTheme teamId={teamId}>
-        <div style={{ padding: '1rem', backgroundColor: 'var(--bg-color)', color: 'var(--color)' }}>
-          <PlayersRating players={players} />
-        </div>
-      </TeamTheme>
+    <WidgetLayout>
+      <WidgetLayoutPreview>
+        <TeamTheme teamId={teamId}>
+          <PlayersRating teamId={teamId} players={players} />
+        </TeamTheme>
+      </WidgetLayoutPreview>
 
-      <div>
+      <WidgetLayoutForm>
         <select value={teamId} onChange={e => setTeamId(parseInt(e.target.value))}>
           {Object.keys(teamIds).map(name => {
             const id = teamIds[name];
@@ -30,8 +31,8 @@ const PlayersRatingWidget = () => {
         </select>
 
         <PlayersRatingForm teamId={teamId} onChange={setPlayers} />
-      </div>
-    </div>
+      </WidgetLayoutForm>
+    </WidgetLayout>
   );
 };
 

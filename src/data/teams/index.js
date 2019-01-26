@@ -1,3 +1,5 @@
+import sfsColorContrastSvg from './custom-logo/sfs-color-contrast.svg';
+
 export const getTeamInfo = id => data[id];
 
 export const data = {
@@ -23,6 +25,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/Q8TMKNUFIJL51519747890664.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/Q8TMKNUFIJL51519747890664.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/Q8TMKNUFIJL51519747890664.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/Q8TMKNUFIJL51519747890664.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/YUUL7E0CSF591544055626557.png',
@@ -57,6 +64,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/NHCAR82UZJUK1544642802896.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/NHCAR82UZJUK1544642802896.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/NHCAR82UZJUK1544642802896.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/NHCAR82UZJUK1544642802896.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/TVS7JDXJBWM81544055687151.png',
@@ -93,6 +105,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/6LPXHIRHCQTR1546557663345.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/6LPXHIRHCQTR1546557663345.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/6LPXHIRHCQTR1546557663345.svg',
+        usage: 'mainNameColorContrast',
+      },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/EEU1R8LF91VP1544055641426.png',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/MJLP7QICH5JP1544055906758.svg',
@@ -127,6 +144,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/6L8FEHO4JUB51519747890656.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/6L8FEHO4JUB51519747890656.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/6L8FEHO4JUB51519747890656.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/6L8FEHO4JUB51519747890656.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/8RS25ECY3PZH1515523733716.png',
@@ -163,6 +185,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/3FXYFS8XQC7C1519747890817.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/3FXYFS8XQC7C1519747890817.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/3FXYFS8XQC7C1519747890817.svg',
+        usage: 'mainNameColorContrast',
+      },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/FVDC5D3YQ33E1544055672372.png',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/PTX7PFVTAAZS1544055952805.svg',
@@ -193,6 +220,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/ux/UXJQ4UM6HEED1544641659418.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/ux/UXJQ4UM6HEED1544641659418.svg',
+        svg: sfsColorContrastSvg,
+        usage: 'mainNameColorContrast',
+      },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/YO24NN5KAOFL1508792362791.png',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/template_resource/0SY7LHKHV86R1507822883113.svg',
@@ -222,6 +254,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/DNLJ56ABAOLP1519747890885.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/DNLJ56ABAOLP1519747890885.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/DNLJ56ABAOLP1519747890885.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/DNLJ56ABAOLP1519747890885.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/0D8BNUWVZP6B1508792362890.PNG',
@@ -258,6 +295,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/92RXGEWTP0B11519747890766.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/92RXGEWTP0B11519747890766.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/92RXGEWTP0B11519747890766.svg',
+        usage: 'mainNameColorContrast',
+      },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/O9BE1LQSQN1C1544055646937.png',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/NCT1WP6NKDFS1544055915971.svg',
@@ -292,6 +334,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/FQBVNDFO99P21519747890664.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/FQBVNDFO99P21519747890664.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/FQBVNDFO99P21519747890664.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/FQBVNDFO99P21519747890664.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/4GO273NATVWM1508792362854.png',
@@ -328,6 +375,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/M703QHV3B6ZC1519747890887.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/M703QHV3B6ZC1519747890887.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/M703QHV3B6ZC1519747890887.svg',
+        usage: 'mainNameColorContrast',
+      },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/TGZYGC96SYHP1544055708493.png',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/CZQND87P06NN1544055996911.svg',
@@ -357,6 +409,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/PALRGLF8SMMC1519747890813.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/PALRGLF8SMMC1519747890813.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/PALRGLF8SMMC1519747890813.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/PALRGLF8SMMC1519747890813.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/LHRSIW3NWH211508792362796.png',
@@ -388,6 +445,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/9X0RTOLWRG231519747890764.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/9X0RTOLWRG231519747890764.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/9X0RTOLWRG231519747890764.svg',
+        usage: 'mainNameColorContrast',
+      },
     },
   },
   7692: {
@@ -412,6 +474,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/K4COQFVPBOPH1541541301546.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/K4COQFVPBOPH1541541301546.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/K4COQFVPBOPH1541541301546.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/K4COQFVPBOPH1541541301546.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/VSAVRBWU5F321544055622417.png',
@@ -448,6 +515,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/W4B278H4M1T01541541301781.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/W4B278H4M1T01541541301781.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/W4B278H4M1T01541541301781.svg',
+        usage: 'mainNameColorContrast',
+      },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/QW4QD06XJUZY1544055635729.png',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/J0TQAJXNO5YC1544055844033.svg',
@@ -477,6 +549,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/1DJR8B3JN4WT1541541301789.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/1DJR8B3JN4WT1541541301789.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/1DJR8B3JN4WT1541541301789.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/1DJR8B3JN4WT1541541301789.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/CDLGF687JK601544055680665.png',
@@ -513,6 +590,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/JMK8L4YYYNR81541541301792.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/JMK8L4YYYNR81541541301792.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/JMK8L4YYYNR81541541301792.svg',
+        usage: 'mainNameColorContrast',
+      },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/DEZQ2KQFS7FC1544055716196.png',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/JSRSX9J4F0HY1544056004176.svg',
@@ -547,6 +629,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/LLDR7VZ510BN1543976768177.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/LLDR7VZ510BN1543976768177.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/LLDR7VZ510BN1543976768177.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/LLDR7VZ510BN1543976768177.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/35QR87XB3X9J1544055721750.png',
@@ -583,6 +670,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/2YGP6C7VUQLY1541536094681.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/2YGP6C7VUQLY1541536094681.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/2YGP6C7VUQLY1541536094681.svg',
+        usage: 'mainNameColorContrast',
+      },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/GOQB6JN0J0191544055725234.png',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/OYO5HG0DWGCE1544056019664.svg',
@@ -613,6 +705,11 @@ export const data = {
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/F7GNJ0AOZG9F1541541301534.svg',
         usage: 'mainName',
       },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/F7GNJ0AOZG9F1541541301534.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/F7GNJ0AOZG9F1541541301534.svg',
+        usage: 'mainNameColorContrast',
+      },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/u8/U8GNT5WY682N1544054371697.png',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/pl/PLDS7PJMC6V11544055443407.svg',
@@ -642,6 +739,11 @@ export const data = {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/SHU9HWDMVK391541541301535.svg',
         svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/SHU9HWDMVK391541541301535.svg',
         usage: 'mainName',
+      },
+      mainNameColorContrast: {
+        png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/SHU9HWDMVK391541541301535.svg',
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/SHU9HWDMVK391541541301535.svg',
+        usage: 'mainNameColorContrast',
       },
       altDark: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/page_media/WFTDS7FURZ3L1544055630545.png',

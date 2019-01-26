@@ -1,0 +1,11 @@
+.rating path {
+  fill: currentColor;
+}
+
+.rating svg + svg {
+  margin-left: 0.1em;
+}
+
+.rating__empty-star {
+  opacity: 0.6;
+}

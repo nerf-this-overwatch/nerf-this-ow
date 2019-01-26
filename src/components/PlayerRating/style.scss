@@ -1,7 +1,7 @@
 .player-rating {
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.12rem;
   line-height: 1;
 }
 
@@ -11,7 +11,7 @@
 
 .player-rating__infos-top {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .player-rating__number,
@@ -57,6 +57,6 @@
   flex-grow: 0;
 }
 
-.player-rating__stars path {
-  fill: var(--accent-color);
+.rating__full-star {
+  color: var(--accent-color);
 }

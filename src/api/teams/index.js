@@ -13,26 +13,17 @@ const reshapeTeamColors = colorsArr =>
     {}
   );
 
-const reshapeTeamIcons = (iconsArr, id) => {
-  const icons = iconsArr.reduce(
-    (iconsObj, icon) => ({
+const reshapeTeamIcons = name =>
+  /* eslint-disable */
+  ['main', 'main-name', 'main-name-light'].reduce((iconsObj, usage) => {
+    const camelCaseUsage = usage.replace(/-([a-z])/g, g => g[1].toUpperCase());
+    const kebabCaseName = name.replace(/\s+/g, '-').toLowerCase();
+    return {
       ...iconsObj,
-      [icon.usage]: icon.svg,
-    }),
-    {}
-  );
-
-  /* eslint-disable global-require */
-  const customMainNameColorContrat = {
-    4404: require('./custom-logo/SFS-main-name-color-constrast.svg'),
-  };
-  /* eslint-enable global-require */
-
-  return {
-    ...icons,
-    mainNameColorContrast: customMainNameColorContrat[id] || icons.mainName,
-  };
-};
+      [camelCaseUsage]: require(`./icons/${kebabCaseName}/${usage}.svg`),
+    };
+  }, {});
+/* eslint-enable */
 
 const reshapePlayer = ({ team, player }) => ({
   id: player.id,
@@ -80,7 +71,7 @@ const reshapeTeamsData = teams =>
             abbreviatedName,
             division: team.competitor.owl_division,
             colors: reshapeTeamColors(content.colors),
-            icons: reshapeTeamIcons(content.icons, id),
+            icons: reshapeTeamIcons(name),
             players: reshapeTeamPlayers(players),
           },
         },

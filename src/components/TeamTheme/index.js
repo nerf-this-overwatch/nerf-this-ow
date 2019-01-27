@@ -27,7 +27,7 @@ const TeamTheme = ({ teamId, children }) => {
 
 TeamTheme.propTypes = {
   children: PropTypes.any.isRequired,
-  teamId: PropTypes.oneOf(Object.values(teamIds)).isRequired,
+  teamId: PropTypes.number.isRequired,
 };
 
 export default TeamTheme;

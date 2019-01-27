@@ -7,44 +7,23 @@ import xqcEmote from '../PlayerRating/xqc-emote.png';
 import NfLogo from './nf-logo.js';
 import Backdrop from './backdrop.js';
 import Rating from '../Rating';
-import positions from '../../data/positions';
-import { getTeamInfo } from '../../data/teams';
 import ApiContext from '../../containers/ApiContext';
-import { getTeam, sortPlayersByRole } from '../../utils/data/teams';
+import { sortPlayersByRole } from '../../utils/data/teams';
 
-const PlayersRating = ({ playersRates = {}, teamId }) => {
+const PlayersRating = ({ playersRates, playersIsXqc, teamId }) => {
   const { teams } = useContext(ApiContext);
-  const team = getTeam(teams, teamId);
+  const team = teams.byId[teamId];
 
   // to use once the teams api data is reshaped
-  const sortedPlayers = sortPlayersByRole(team, playersRates);
+  const sortedPlayers = sortPlayersByRole(team.players, playersRates);
 
-  // sort players
-  const emptyPosObjPlayers = positions.reduce(
-    (acc, pos) => ({
-      ...acc,
-      [pos]: [],
-    }),
-    {}
-  );
-
-  const posObjPlayers = Object.keys(playersRates).reduce((acc, playerId) => {
-    const player = playersRates[playerId];
-
-    return {
-      ...acc,
-      [player.role]: [...acc[player.role], player].sort((playerA, playerB) => playerB.rate - playerA.rate),
-    };
-  }, emptyPosObjPlayers);
-
-  const teamInfo = getTeamInfo(teamId);
-
-  const hasDramaQueen = Object.keys(playersRates).some(playerId => playersRates[playerId].isDramaQueen);
+  const hasDramaQueen = Object.keys(playersIsXqc).some(playerId => playersIsXqc[playerId]);
 
   return (
     <div className="players-rating">
       <div className="players-rating__left-col">
-        <img className="players-rating__team-logo" src={teamInfo.icons.mainNameColorContrast.svg} />
+        {/* <img className="players-rating__team-logo" src={team.icons.mainNameColorContrast.svg} /> */}
+        <img className="players-rating__team-logo" alt={team.name} src={team.icons.mainName} />
 
         <div className="players-rating__legend">
           <div className="rate-legend">
@@ -74,7 +53,7 @@ const PlayersRating = ({ playersRates = {}, teamId }) => {
 
           {hasDramaQueen && (
             <div className="rate-legend rate-legend--drama-queen">
-              <img src={xqcEmote} />
+              <img src={xqcEmote} alt="Is a drama queen" />
               <p className="rate-legend__label">
                 Potentiel
                 <br />
@@ -90,19 +69,17 @@ const PlayersRating = ({ playersRates = {}, teamId }) => {
       </div>
 
       <div className="players-rating__grid">
-        {positions.map(position =>
-          posObjPlayers[position].map(player => (
+        {sortedPlayers.allIds.map(playerId => {
+          const player = sortedPlayers.byId[playerId];
+          return (
             <PlayerRating
               key={player.id}
-              name={player.name}
-              playerNumber={player.playerNumber}
-              nationality={player.nationality}
-              role={player.role}
-              rate={player.rate}
-              isDramaQueen={player.isDramaQueen}
+              player={player}
+              rate={playersRates[player.id]}
+              isXqc={playersIsXqc[player.id]}
             />
-          ))
-        )}
+          );
+        })}
       </div>
 
       <Backdrop />
@@ -110,7 +87,9 @@ const PlayersRating = ({ playersRates = {}, teamId }) => {
   );
 };
 PlayersRating.propTypes = {
-  playersRates: PropTypes.object,
+  playersRates: PropTypes.object.isRequired,
+  playersIsXqc: PropTypes.object.isRequired,
+  teamId: PropTypes.number.isRequired,
 };
 
 export default PlayersRating;

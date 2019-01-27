@@ -1,36 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { teamIds } from '../../data/teams';
 import PlayersRatingForm from '../../components/PlayersRatingForm';
 import TeamTheme from '../../components/TeamTheme';
 import PlayersRating from '../../components/PlayersRating';
 import WidgetLayout, { WidgetLayoutPreview, WidgetLayoutForm } from '../../components/WidgetLayout';
+import ApiContext from '../../containers/ApiContext';
+import TeamSelect from '../../containers/TeamSelect';
 
 const PlayersRatingWidget = () => {
-  const [teamId, setTeamId] = useState(parseInt(Object.values(teamIds)[0]));
-  const [playersRates, setPlayersRates] = useState();
+  const { teams } = useContext(ApiContext);
+  const [teamId, setTeamId] = useState(teams.allIds[0]);
+  const [playersEvaluation, setPlayersEvaluation] = useState({ rates: {}, isXqc: {} });
 
   return (
     <WidgetLayout>
       <WidgetLayoutPreview>
         <TeamTheme teamId={teamId}>
-          <PlayersRating teamId={teamId} playersRates={playersRates} />
+          <PlayersRating
+            teamId={teamId}
+            playersRates={playersEvaluation.rates}
+            playersIsXqc={playersEvaluation.isXqc}
+          />
         </TeamTheme>
       </WidgetLayoutPreview>
 
-      <WidgetLayoutForm>
-        <select value={teamId} onChange={e => setTeamId(parseInt(e.target.value))}>
-          {Object.keys(teamIds).map(name => {
-            const id = teamIds[name];
-            return (
-              <option key={id} value={id}>
-                {name}
-              </option>
-            );
-          })}
-        </select>
-
-        <PlayersRatingForm teamId={teamId} onChange={setPlayersRates} />
+      <WidgetLayoutForm onSubmit={() => true}>
+        <TeamSelect value={teamId} onChange={setTeamId} />
+        <PlayersRatingForm teamId={teamId} onChange={setPlayersEvaluation} />
       </WidgetLayoutForm>
     </WidgetLayout>
   );

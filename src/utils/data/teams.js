@@ -14,21 +14,21 @@ export const getTeam = (teams, teamId) =>
  * @param {Object} team - The teams object
  * @param {Object} rates - An object that has playerId as key and an object with rate attr as value
  */
-export const sortPlayersByRole = (team, rates = {}) => {
+export const sortPlayersByRole = (players, rates = {}) => {
   // Creates an object with as key a role, and as value an array of players sharing the same role
-  const rosterByRole = team.players.reduce((roster, { player }) => {
-    const { role } = player.attributes;
+  const playersIdsByRoles = players.allIds.reduce((roster, playerId) => {
+    const player = players.byId[playerId];
 
-    if (!roster[role]) {
+    if (!roster[player.role]) {
       return {
         ...roster,
-        [role]: [player],
+        [player.role]: [playerId],
       };
     }
 
-    const playersWithSameRole = [...roster[role], player].sort((playerA, playerB) => {
-      const playerARate = path([playerA.id, 'rate'], rates);
-      const playerBRate = path([playerB.id, 'rate'], rates);
+    const playersWithSameRole = [...roster[player.role], playerId].sort((playerIdA, playerIdB) => {
+      const playerARate = path([playerIdA], rates);
+      const playerBRate = path([playerIdB], rates);
 
       if (!playerARate || !playerBRate) return 0;
       return playerBRate - playerARate;
@@ -36,15 +36,20 @@ export const sortPlayersByRole = (team, rates = {}) => {
 
     return {
       ...roster,
-      [role]: playersWithSameRole,
+      [player.role]: playersWithSameRole,
     };
   }, {});
 
-  // flatten the rosterByRole object in order to gate an array of player sorted by role and rates
-  return positions.reduce((roster, position) => {
-    const players = rosterByRole[position];
+  // flatten the playersIdsByRoles object in order to gate an array of player sorted by role and rates
+  const allIds = positions.reduce((ids, position) => {
+    const roleIds = playersIdsByRoles[position];
 
-    if (!players) return [...roster];
-    return [...roster, ...players];
+    if (!roleIds) return [...ids];
+    return [...ids, ...roleIds];
   }, []);
+
+  return {
+    ...players,
+    allIds,
+  };
 };

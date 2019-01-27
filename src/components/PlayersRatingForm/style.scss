@@ -1,0 +1,22 @@
+.player-form {
+  margin: 0.75rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.player-form__name {
+  margin: 0;
+}
+
+.player-form__role {
+  margin: 0;
+}
+
+.player-form__col-info {
+  flex-grow: 1;
+}
+
+.player-form__col-inputs {
+  flex-shrink: 0;
+  margin-left: 0.5em;
+}

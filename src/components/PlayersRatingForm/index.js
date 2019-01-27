@@ -1,92 +1,125 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import ApiContext from '../../containers/ApiContext';
+import { sortPlayersByRole } from '../../utils/data/teams';
 
 import './style.scss';
 
-const defaultPlayersState = (teamId, teams) => {
-  const { players } = teams.competitors.find(({ competitor }) => competitor.id === teamId).competitor;
-
-  return players.reduce(
-    (acc, { player }) => ({
-      ...acc,
-      [player.id]: {
-        id: player.id,
-        rate: 3,
-        name: player.name,
-        role: player.attributes.role,
-        playerNumber: player.attributes.player_number,
-        nationality: player.nationality,
-        isDramaQueen: false,
+const defaultState = team =>
+  team.players.allIds.reduce(
+    (state, playerId) => ({
+      ...state,
+      rates: {
+        ...state.rates,
+        [playerId]: 3,
+      },
+      isXqc: {
+        ...state.isXqc,
+        [playerId]: false,
       },
     }),
-    {}
+    { rates: {}, isXqc: {} }
   );
-};
 
 const PlayersRatingForm = ({ teamId, onChange }) => {
   const { teams } = useContext(ApiContext);
-  const [playersData, setPlayersData] = useState(defaultPlayersState(teamId, teams));
 
-  useEffect(() => onChange(playersData), [playersData]);
+  const [state, dispatch] = useReducer((currentState, action) => {
+    switch (action.type) {
+      case 'UPDATE_PLAYER_RATE': {
+        return {
+          ...currentState,
+          rates: {
+            ...currentState.rates,
+            [action.playerId]: action.rate,
+          },
+        };
+      }
 
-  useEffect(() => setPlayersData(defaultPlayersState(teamId, teams)), [teamId]);
+      case 'UPDATE_PLAYER_ISXQC': {
+        return {
+          ...currentState,
+          isXqc: {
+            ...currentState.isXqc,
+            [action.playerId]: action.isXqc,
+          },
+        };
+      }
 
-  const onPositionChange = (id, event) => {
-    setPlayersData({
-      ...playersData,
-      [id]: {
-        ...playersData[id],
-        position: event.target.value,
-      },
-    });
-  };
+      case 'RESET_STATE': {
+        return defaultState(teams.byId[teamId]);
+      }
 
-  const onRateChange = (id, event) => {
-    setPlayersData({
-      ...playersData,
-      [id]: {
-        ...playersData[id],
-        rate: parseInt(event.target.value),
-      },
-    });
-  };
+      default: {
+        return currentState;
+      }
+    }
+  }, defaultState(teams.byId[teamId]));
 
-  const onDramaQueenChange = (id, event) => {
-    setPlayersData({
-      ...playersData,
-      [id]: {
-        ...playersData[id],
-        isDramaQueen: event.target.checked,
-      },
-    });
-  };
+  useEffect(
+    () =>
+      dispatch({
+        type: 'RESET_STATE',
+      }),
+    [teamId]
+  );
+
+  useEffect(() => onChange(state), [state]);
+
+  const players = sortPlayersByRole(teams.byId[teamId].players);
 
   return (
-    <form>
-      {Object.keys(playersData).map(playerId => {
-        const player = playersData[playerId];
+    <div>
+      {players.allIds.map(playerId => {
+        const player = players.byId[playerId];
 
         return (
-          <fieldset key={player.id}>
-            <span>{player.name}</span>
+          <div className="player-form" key={player.id}>
+            <div className="player-form__col player-form__col-info">
+              <h4 className="player-form__name">{player.name}</h4>
+              <h5 className="player-form__role">{player.role}</h5>
+            </div>
 
-            <span>{player.role}</span>
+            <div className="player-form__col player-form__col-inputs">
+              <div>
+                <input
+                  type="range"
+                  min={1}
+                  max={5}
+                  value={state.rates[playerId]}
+                  key={`${playerId}-rate-input`}
+                  onChange={e =>
+                    dispatch({
+                      type: 'UPDATE_PLAYER_RATE',
+                      playerId,
+                      rate: parseInt(e.target.value),
+                    })
+                  }
+                />
+              </div>
 
-            <input type="range" min={1} max={5} value={player.rate} onChange={onRateChange.bind(null, player.id)} />
-
-            <label>
-              dramaqueen ?
-              <input
-                type="checkbox"
-                checked={player.isDramaQueen}
-                onChange={onDramaQueenChange.bind(null, player.id)}
-              />
-            </label>
-          </fieldset>
+              <div>
+                <label htmlFor={`is-${player.id}-dramaqueen`}>
+                  dramaqueen ?
+                  <input
+                    type="checkbox"
+                    id={`is-${player.id}-dramaqueen`}
+                    checked={state.isXqc[playerId]}
+                    onChange={e =>
+                      dispatch({
+                        type: 'UPDATE_PLAYER_ISXQC',
+                        playerId,
+                        isXqc: e.target.checked,
+                      })
+                    }
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
         );
       })}
-    </form>
+    </div>
   );
 };
 

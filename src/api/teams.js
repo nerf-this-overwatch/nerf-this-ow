@@ -2,30 +2,6 @@ import chroma from 'chroma-js';
 
 import playersCustomRoles from '../data/players/custom-role';
 
-const addCustomPlayersRoles = teams => {
-  const competitors = teams.competitors.map(({ competitor, ...team }) => ({
-    ...team,
-    competitor: {
-      ...competitor,
-      players: competitor.players.map(player => ({
-        ...player,
-        player: {
-          ...player.player,
-          attributes: {
-            ...player.player.attributes,
-            role: playersCustomRoles[player.player.id] || player.player.attributes.role,
-          },
-        },
-      })),
-    },
-  }));
-
-  return {
-    ...teams,
-    competitors,
-  };
-};
-
 const reshapeTeamColors = colorsArr =>
   colorsArr.reduce(
     (colorsObj, color) => ({
@@ -103,9 +79,8 @@ const reshapeTeamsData = teams =>
   );
 
 export default async () => {
-  const response = await fetch('https://api.overwatchleague.com/teams?locale=fr_FR&expand=team.content');
-  const teams = await response.json();
-  console.log(reshapeTeamsData(teams));
+  const response = await fetch('https://api.overwatchleague.com/teams?expand=team.content&locale=fr_FR');
 
-  return addCustomPlayersRoles(teams);
+  const teams = await response.json();
+  return reshapeTeamsData(teams);
 };

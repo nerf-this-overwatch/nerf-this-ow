@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 
-import { useImageGeneration } from '../../hooks/image';
 import FormGroup from '../../components/FormGroup';
 import ImageFormGroup from '../../components/ImageFormGroup';
 import PodcastCover from '../../components/PodcastCover';
@@ -12,16 +11,14 @@ const PodcastCoverWidget = () => {
   const [number, setNumber] = useState('0');
   const [guest, setGuest] = useState('');
   const [image, setImage] = useState();
-  const coverRef = useRef();
-  const [generateImage] = useImageGeneration(coverRef, `nerf-this-episode-${number}`, { width: 500, height: 500 });
 
   return (
-    <WidgetLayout>
+    <WidgetLayout imageName={`nerf-this-episode-${number}`} imageSize={{ width: 500, height: 500 }}>
       <WidgetLayoutPreview>
-        <PodcastCover innerRef={coverRef} number={number} guest={guest} title={title} image={image} />
+        <PodcastCover number={number} guest={guest} title={title} image={image} />
       </WidgetLayoutPreview>
 
-      <WidgetLayoutForm onSubmit={generateImage}>
+      <WidgetLayoutForm>
         <FormGroup value={title} id="title" label="Titre" onChange={e => setTitle(e.target.value)} />
         <FormGroup
           value={number}

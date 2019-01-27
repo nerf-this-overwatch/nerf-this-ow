@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 
-import { teamIds } from '../../data/teams';
 import PlayersRatingForm from '../../components/PlayersRatingForm';
 import TeamTheme from '../../components/TeamTheme';
 import PlayersRating from '../../components/PlayersRating';
@@ -14,7 +13,7 @@ const PlayersRatingWidget = () => {
   const [playersEvaluation, setPlayersEvaluation] = useState({ rates: {}, isXqc: {} });
 
   return (
-    <WidgetLayout>
+    <WidgetLayout imageName={`rating ${teams.byId[teamId].fullName}`} imageSize={{ width: 1000, height: 500 }}>
       <WidgetLayoutPreview>
         <TeamTheme teamId={teamId}>
           <PlayersRating
@@ -25,7 +24,7 @@ const PlayersRatingWidget = () => {
         </TeamTheme>
       </WidgetLayoutPreview>
 
-      <WidgetLayoutForm onSubmit={() => true}>
+      <WidgetLayoutForm>
         <TeamSelect value={teamId} onChange={setTeamId} />
         <PlayersRatingForm teamId={teamId} onChange={setPlayersEvaluation} />
       </WidgetLayoutForm>

@@ -22,7 +22,6 @@ const PlayersRating = ({ playersRates, playersIsXqc, teamId }) => {
   return (
     <div className="players-rating">
       <div className="players-rating__left-col">
-        {/* <img className="players-rating__team-logo" src={team.icons.mainNameColorContrast.svg} /> */}
         <img className="players-rating__team-logo" alt={team.name} src={team.icons.mainNameColorContrast} />
 
         <div className="players-rating__legend">

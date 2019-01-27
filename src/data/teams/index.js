@@ -1,5 +1,3 @@
-import sfsColorContrastSvg from './custom-logo/sfs-color-contrast.svg';
-
 export const getTeamInfo = id => data[id];
 
 export const data = {
@@ -222,7 +220,7 @@ export const data = {
       },
       mainNameColorContrast: {
         png: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/ux/UXJQ4UM6HEED1544641659418.svg',
-        svg: sfsColorContrastSvg,
+        svg: 'https://bnetcmsus-a.akamaihd.net/cms/gallery/ux/UXJQ4UM6HEED1544641659418.svg',
         usage: 'mainNameColorContrast',
       },
       altDark: {

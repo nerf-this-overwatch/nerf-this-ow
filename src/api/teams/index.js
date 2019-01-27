@@ -1,6 +1,5 @@
 import chroma from 'chroma-js';
-
-import playersCustomRoles from '../data/players/custom-role';
+import playersCustomRoles from '../../data/players/custom-role';
 
 const reshapeTeamColors = colorsArr =>
   colorsArr.reduce(
@@ -14,14 +13,26 @@ const reshapeTeamColors = colorsArr =>
     {}
   );
 
-const reshapeTeamIcons = iconsArr =>
-  iconsArr.reduce(
+const reshapeTeamIcons = (iconsArr, id) => {
+  const icons = iconsArr.reduce(
     (iconsObj, icon) => ({
       ...iconsObj,
       [icon.usage]: icon.svg,
     }),
     {}
   );
+
+  /* eslint-disable global-require */
+  const customMainNameColorContrat = {
+    4404: require('./custom-logo/SFS-main-name-color-constrast.svg'),
+  };
+  /* eslint-enable global-require */
+
+  return {
+    ...icons,
+    mainNameColorContrast: customMainNameColorContrat[id] || icons.mainName,
+  };
+};
 
 const reshapePlayer = ({ team, player }) => ({
   id: player.id,
@@ -69,7 +80,7 @@ const reshapeTeamsData = teams =>
             abbreviatedName,
             division: team.competitor.owl_division,
             colors: reshapeTeamColors(content.colors),
-            icons: reshapeTeamIcons(content.icons),
+            icons: reshapeTeamIcons(content.icons, id),
             players: reshapeTeamPlayers(players),
           },
         },

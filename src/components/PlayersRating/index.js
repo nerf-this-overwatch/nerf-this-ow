@@ -54,9 +54,9 @@ const PlayersRating = ({ playersRates, playersIsXqc, teamId }) => {
             <div className="rate-legend rate-legend--drama-queen">
               <img src={xqcEmote} alt="Is a drama queen" />
               <p className="rate-legend__label">
-                Potentiel
+                Futurs
                 <br />
-                dramas
+                dramas ?
               </p>
             </div>
           )}

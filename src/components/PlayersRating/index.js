@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
@@ -9,8 +9,17 @@ import Backdrop from './backdrop.js';
 import Rating from '../Rating';
 import positions from '../../data/positions';
 import { getTeamInfo } from '../../data/teams';
+import ApiContext from '../../containers/ApiContext';
+import { getTeam, sortPlayersByRole } from '../../utils/data/teams';
 
-const PlayersRating = ({ players = {}, teamId }) => {
+const PlayersRating = ({ playersRates = {}, teamId }) => {
+  const { teams } = useContext(ApiContext);
+  const team = getTeam(teams, teamId);
+
+  // to use once the teams api data is reshaped
+  const sortedPlayers = sortPlayersByRole(team, playersRates);
+
+  // sort players
   const emptyPosObjPlayers = positions.reduce(
     (acc, pos) => ({
       ...acc,
@@ -19,8 +28,8 @@ const PlayersRating = ({ players = {}, teamId }) => {
     {}
   );
 
-  const posObjPlayers = Object.keys(players).reduce((acc, playerId) => {
-    const player = players[playerId];
+  const posObjPlayers = Object.keys(playersRates).reduce((acc, playerId) => {
+    const player = playersRates[playerId];
 
     return {
       ...acc,
@@ -30,7 +39,7 @@ const PlayersRating = ({ players = {}, teamId }) => {
 
   const teamInfo = getTeamInfo(teamId);
 
-  const hasDramaQueen = Object.keys(players).some(playerId => players[playerId].isDramaQueen);
+  const hasDramaQueen = Object.keys(playersRates).some(playerId => playersRates[playerId].isDramaQueen);
 
   return (
     <div className="players-rating">
@@ -101,7 +110,7 @@ const PlayersRating = ({ players = {}, teamId }) => {
   );
 };
 PlayersRating.propTypes = {
-  players: PropTypes.object,
+  playersRates: PropTypes.object,
 };
 
 export default PlayersRating;

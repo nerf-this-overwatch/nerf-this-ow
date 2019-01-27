@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ApiContext from '../../containers/ApiContext';
 
 import './style.scss';
-import positions from '../../data/positions';
 
 const defaultPlayersState = (teamId, teams) => {
   const { players } = teams.competitors.find(({ competitor }) => competitor.id === teamId).competitor;

@@ -8,13 +8,13 @@ import WidgetLayout, { WidgetLayoutPreview, WidgetLayoutForm } from '../../compo
 
 const PlayersRatingWidget = () => {
   const [teamId, setTeamId] = useState(parseInt(Object.values(teamIds)[0]));
-  const [players, setPlayers] = useState();
+  const [playersRates, setPlayersRates] = useState();
 
   return (
     <WidgetLayout>
       <WidgetLayoutPreview>
         <TeamTheme teamId={teamId}>
-          <PlayersRating teamId={teamId} players={players} />
+          <PlayersRating teamId={teamId} playersRates={playersRates} />
         </TeamTheme>
       </WidgetLayoutPreview>
 
@@ -30,7 +30,7 @@ const PlayersRatingWidget = () => {
           })}
         </select>
 
-        <PlayersRatingForm teamId={teamId} onChange={setPlayers} />
+        <PlayersRatingForm teamId={teamId} onChange={setPlayersRates} />
       </WidgetLayoutForm>
     </WidgetLayout>
   );

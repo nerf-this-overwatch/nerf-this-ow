@@ -1,12 +1,17 @@
 export const isStringAImageURL = (url, timeoutT) =>
-  new Promise((resolve, reject) => {
+  new Promise(resolve => {
     const timeout = timeoutT || 5000;
     let timer;
     const img = new Image();
 
-    img.onerror = img.onabort = function() {
+    img.onabort = function() {
       clearTimeout(timer);
-      resolve(false);
+      resolve(true);
+    };
+
+    img.onerror = function() {
+      clearTimeout(timer);
+      resolve(true);
     };
 
     img.onload = function() {

@@ -12,7 +12,6 @@ const ImageFormGroup = ({ onChange, id }) => {
   const [image, setImage] = useState('');
   const fileInput = useRef();
 
-  // useEffect(() => setImage(value), [value]);
   useEffect(
     async () => {
       const isImage = await isStringAImageURL(image);

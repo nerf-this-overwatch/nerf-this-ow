@@ -1,5 +1,5 @@
 import chroma from 'chroma-js';
-import playersCustomRoles from '../../data/players/custom-role';
+import playersCustomRoles from '../players/custom-role';
 
 const reshapeTeamColors = colorsArr =>
   colorsArr.reduce(

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import ApiContext from '../../containers/ApiContext';
-import { sortPlayersByRole } from '../../utils/data/teams';
+import { sortPlayersByRole } from '../../utils/teams';
 
 import './style.scss';
 

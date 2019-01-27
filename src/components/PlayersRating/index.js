@@ -8,7 +8,7 @@ import NfLogo from './nf-logo.js';
 import Backdrop from './backdrop.js';
 import Rating from '../Rating';
 import ApiContext from '../../containers/ApiContext';
-import { sortPlayersByRole } from '../../utils/data/teams';
+import { sortPlayersByRole } from '../../utils/teams';
 
 const PlayersRating = ({ playersRates, playersIsXqc, teamId }) => {
   const { teams } = useContext(ApiContext);

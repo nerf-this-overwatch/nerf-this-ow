@@ -1,13 +1,14 @@
 import { path } from 'ramda';
-import positions from '../../data/positions';
 
-/**
- * Returns a single team object from the API teams object
- * @param {Object} teams - The teams object returned by the API
- * @param {string|number} teamId - The id of the team wanted
- */
-export const getTeam = (teams, teamId) =>
-  teams.competitors.find(competitor => competitor.competitor.id === teamId).competitor;
+const positionsOrder = [
+  'Main tank',
+  'Off tank',
+  'Hitscan DPS',
+  'Projectiles DPS',
+  'Flex DPS',
+  'Flex support',
+  'Main healer',
+];
 
 /**
  * Return the players array sorted by roles and eventually by rates
@@ -41,7 +42,7 @@ export const sortPlayersByRole = (players, rates = {}) => {
   }, {});
 
   // flatten the playersIdsByRoles object in order to gate an array of player sorted by role and rates
-  const allIds = positions.reduce((ids, position) => {
+  const allIds = positionsOrder.reduce((ids, position) => {
     const roleIds = playersIdsByRoles[position];
 
     if (!roleIds) return [...ids];

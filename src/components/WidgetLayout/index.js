@@ -68,5 +68,9 @@ export const WidgetLayoutForm = ({ onSubmit, children }) => (
 
 WidgetLayoutForm.propTypes = {
   children: PropTypes.any.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
+};
+
+WidgetLayoutForm.defaultProps = {
+  onSubmit: () => undefined,
 };

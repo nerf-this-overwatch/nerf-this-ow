@@ -26,7 +26,7 @@ const PlayersRatingWidget = () => {
 
       <WidgetLayoutForm>
         <TeamSelect value={teamId} onChange={setTeamId} />
-        <PlayersRatingForm teamId={teamId} onChange={setPlayersEvaluation} />
+        <PlayersRatingForm key={teamId} teamId={teamId} onChange={setPlayersEvaluation} />
       </WidgetLayoutForm>
     </WidgetLayout>
   );

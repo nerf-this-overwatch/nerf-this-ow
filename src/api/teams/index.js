@@ -81,8 +81,11 @@ const reshapeTeamsData = teams =>
   );
 
 export default async () => {
-  const response = await fetch('https://api.overwatchleague.com/teams?expand=team.content&locale=fr_FR');
-
-  const teams = await response.json();
-  return reshapeTeamsData(teams);
+  try {
+    const response = await fetch('https://api.overwatchleague.com/teams?expand=team.content&locale=fr_FR');
+    const teams = await response.json();
+    return reshapeTeamsData(teams);
+  } catch (err) {
+    return console.error('Error', err);
+  }
 };

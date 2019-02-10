@@ -39,7 +39,7 @@ export default {
   /* Los Angeles Valiant */
   3577: 'Main healer' /* Custa */,
   4142: 'Projectiles DPS' /* Agilities */,
-  4635: 'Flex support' /* KariV */,
+  4635: 'Hitscan DPS' /* KariV */,
   4636: 'Main tank' /* Fate */,
   4637: 'Off tank' /* SPACE */,
   4647: 'Main tank' /* KuKi */,

@@ -35,7 +35,7 @@ const reshapePlayer = ({ team, player }) => ({
   heroes: player.attributes.heroes,
   number: player.attributes.player_number,
   headshot: player.headshot,
-  role: playersCustomRoles[player.id] || player.player.attributes.role,
+  role: playersCustomRoles[player.id] || player.attributes.role,
 });
 
 const reshapeTeamPlayers = playersArr =>

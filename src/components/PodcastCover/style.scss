@@ -49,6 +49,18 @@
   pointer-events: none;
 }
 
+.podcast-cover__headliner-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 6%;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+}
+
 .podcast-cover__heading {
   font-size: 50px;
   margin: 0;
@@ -100,4 +112,25 @@
   text-transform: uppercase;
   color: $pink-dark;
   font-weight: 400;
+}
+
+.podcast-cover__water-mark {
+  margin-top: -3%;
+}
+
+.podcast-cover__providers-label {
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 0.75em;
+  margin-bottom: 0.4em;
+}
+
+.podcast-cover__providers-row {
+  display: flex;
+
+  > * + * {
+    margin-left: 2%;
+  }
 }

@@ -20,7 +20,7 @@ FormGroup.propTypes = {
   value: PropTypes.any,
   placeholder: PropTypes.string,
   label: PropTypes.string,
-  type: PropTypes.oneOf(['text', 'number', 'file']),
+  type: PropTypes.oneOf(['text', 'number', 'file', 'checkbox']),
   onChange: PropTypes.func,
   id: PropTypes.string.isRequired,
   children: PropTypes.any,

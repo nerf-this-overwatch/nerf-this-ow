@@ -11,11 +11,12 @@ const PodcastCoverWidget = () => {
   const [number, setNumber] = useState('0');
   const [guest, setGuest] = useState('');
   const [image, setImage] = useState();
+  const [isModeHeadliner, setIsModeHeadliner] = useState(false);
 
   return (
     <WidgetLayout imageName={`nerf-this-episode-${number}`} imageSize={{ width: 500, height: 500 }}>
       <WidgetLayoutPreview>
-        <PodcastCover number={number} guest={guest} title={title} image={image} />
+        <PodcastCover number={number} guest={guest} title={title} image={image} isModeHeadliner={isModeHeadliner} />
       </WidgetLayoutPreview>
 
       <WidgetLayoutForm>
@@ -28,6 +29,15 @@ const PodcastCoverWidget = () => {
           onChange={e => setNumber(e.target.value)}
         />
         <FormGroup value={guest} id="guest" label="Invité" onChange={e => setGuest(e.target.value)} />
+
+        <FormGroup
+          value={isModeHeadliner}
+          type="checkbox"
+          id="isModeHeadliner"
+          label="Mode Headliner"
+          onChange={e => setIsModeHeadliner(e.target.checked)}
+        />
+
         <ImageFormGroup id="image" onChange={url => setImage(url)} />
       </WidgetLayoutForm>
     </WidgetLayout>

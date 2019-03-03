@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const getStageId = stage => `stage_${stage.id + 1}`;
 const getWeekId = (stage, week) => `${getStageId(stage)}_week_${week.id + 1}`;
 
@@ -16,7 +18,9 @@ const reshapeMatch = ({ competitors, winner, ...match }) => ({
       };
     }, {}),
   },
-  startDate: match.startDate,
+  id: match.id,
+  startDate: moment(match.startDate),
+  localStartDate: moment(match.startDate).subtract(7, 'h'),
   status: match.status,
   statusReason: match.statusReason,
   games: match.games,

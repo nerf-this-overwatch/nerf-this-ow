@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { fetchTeams } from '../../api';
+import { fetchTeams, fetchSchedule } from '../../api';
 
 const Context = React.createContext();
 
 export const ApiProvider = ({ children }) => {
   const [teams, setTeams] = useState();
+  const [schedule, setSchedule] = useState();
 
   useEffect(async () => {
-    await setTeams(await fetchTeams());
+    setTeams(await fetchTeams());
+    setSchedule(await fetchSchedule());
   }, []);
 
-  if (!teams) return 'Loading...';
+  if (!teams && !schedule) return 'Loading...';
 
-  return <Context.Provider value={{ teams }}>{children}</Context.Provider>;
+  return <Context.Provider value={{ teams, schedule }}>{children}</Context.Provider>;
 };
 
 ApiProvider.propTypes = {

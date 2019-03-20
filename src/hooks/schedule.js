@@ -45,3 +45,40 @@ export const useMatchFromDate = date => {
 
   return sorted;
 };
+
+export const useMatchStringFromDate = (date, askToDisplayResults = false) => {
+  const { teams } = useContext(ApiContext);
+  const matches = useMatchFromDate(date);
+
+  const string = matches.allIds.reduce((str, matchId) => {
+    const match = matches.byId[matchId];
+    if (!match.competitors) return str;
+
+    const isDisplayResults = askToDisplayResults && match.status === 'CONCLUDED';
+    const startDate = match.startDate.format('HH:mm');
+
+    const matchLabel = match.competitors.allIds.reduce(
+      (matchStr, competitorId, index) => {
+        const { fullName, teamName } = teams.byId[competitorId];
+        const separatorToDisplay = isDisplayResults ? ' - ' : ' vs ';
+        const separator = index ? separatorToDisplay : '';
+
+        let title = fullName;
+
+        if (isDisplayResults) {
+          const { score } = match.competitors.byId[competitorId];
+          title = teamName;
+          title = index ? `${score} ${teamName}` : `${teamName} ${score}`;
+        }
+
+        const lineBreak = index ? '\n' : '';
+        return `${matchStr}${separator}${title}${lineBreak}`;
+      },
+      isDisplayResults ? '' : `${startDate} `
+    );
+
+    return `${str}${matchLabel}`;
+  }, '');
+
+  return string !== '' ? string : undefined;
+};

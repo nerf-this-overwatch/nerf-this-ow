@@ -13,6 +13,8 @@ const ResultsWidget = () => {
 
   const matchList = matches.allIds.reduce((str, matchId) => {
     const match = matches.byId[matchId];
+    if (!match.competitors) return str;
+
     const startDate = strWithEmoji(match.startDate.format('HH:mm'));
 
     const matchLabel = match.competitors.allIds.reduce((matchStr, competitorId, index) => {

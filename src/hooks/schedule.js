@@ -10,24 +10,12 @@ export const useFlattenSchedule = () => {
 
   const flatten = schedule.allIds.reduce((flattenSchedule, stageId) => {
     const stage = schedule.byId[stageId];
-
-    const weeks = stage.weeks.allIds.reduce((flattenWeeks, weekId) => {
-      const week = stage.weeks.byId[weekId];
-      return {
-        byId: {
-          ...flattenWeeks.byId,
-          ...week.matches.byId,
-        },
-        allIds: [...flattenWeeks.allIds, ...week.matches.allIds],
-      };
-    }, emptyData);
-
     return {
       byId: {
         ...flattenSchedule.byId,
-        ...weeks.byId,
+        ...stage.matches.byId,
       },
-      allIds: [...flattenSchedule.allIds, ...weeks.allIds],
+      allIds: [...flattenSchedule.allIds, ...stage.matches.allIds],
     };
   }, emptyData);
 

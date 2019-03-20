@@ -1,63 +1,53 @@
 import moment from 'moment';
 
 const getStageId = stage => `stage_${stage.id + 1}`;
-const getWeekId = (stage, week) => `${getStageId(stage)}_week_${week.id + 1}`;
 
-const reshapeMatch = ({ competitors, winner, ...match }) => ({
-  competitors: {
-    allIds: competitors.map(({ id }) => id),
-    byId: competitors.reduce((acc, competitor, index) => {
-      const { id } = competitor;
-      return {
-        ...acc,
-        [id]: {
-          id,
-          score: match.scores[index].value,
-          isWinner: winner ? winner.id === id : undefined,
-        },
-      };
-    }, {}),
-  },
-  id: match.id,
-  startDate: moment(match.startDate),
-  localStartDate: moment(match.startDate).subtract(7, 'h'),
-  status: match.status,
-  statusReason: match.statusReason,
-  games: match.games,
-  winner: winner ? winner.id : undefined,
-});
+const reshapeMatch = ({ winner, ...match }) => {
+  const areCompetitorsDefined = match.competitors.every(competitor => !!competitor);
+  let competitors;
 
-const reshapeWeek = week => {
-  const { matches } = week;
-  const allMatchesIds = matches.map(match => match.id);
+  if (areCompetitorsDefined) {
+    competitors = {
+      allIds: match.competitors.map(({ id }) => id),
+      byId: match.competitors.reduce((acc, competitor, index) => {
+        const { id } = competitor;
+        return {
+          ...acc,
+          [id]: {
+            id,
+            score: match.scores[index].value,
+            isWinner: winner ? winner.id === id : undefined,
+          },
+        };
+      }, {}),
+    };
+  }
 
   return {
-    name: week.name,
-    matches: {
-      allIds: allMatchesIds,
-      byId: matches.reduce(
-        (stagesById, match) => ({
-          ...stagesById,
-          [match.id]: reshapeMatch(match),
-        }),
-        {}
-      ),
-    },
+    competitors,
+    id: match.id,
+    startDate: moment(match.startDate),
+    localStartDate: moment(match.startDate).subtract(7, 'h'),
+    status: match.status,
+    statusReason: match.statusReason,
+    games: match.games,
+    winner: winner ? winner.id : undefined,
+    type: match.tournament.type,
   };
 };
 
 const reshapeStage = stage => {
-  const { weeks } = stage;
-  const allWeeksIds = weeks.map(week => getWeekId(stage, week));
+  const { matches } = stage;
+  const allMatchesIds = matches.map(match => match.id);
 
   return {
     name: stage.name,
-    weeks: {
-      allIds: allWeeksIds,
-      byId: weeks.reduce(
-        (stagesById, week) => ({
-          ...stagesById,
-          [getWeekId(stage, week)]: reshapeWeek(week),
+    matches: {
+      allIds: allMatchesIds,
+      byId: matches.reduce(
+        (matchesById, match) => ({
+          ...matchesById,
+          [match.id]: reshapeMatch(match),
         }),
         {}
       ),
@@ -86,8 +76,7 @@ export default async () => {
   try {
     const response = await fetch('https://api.overwatchleague.com/schedule?locale=fr_FR');
     const schedule = await response.json();
-    const reshapedSchedule = reshapeSchedule(schedule);
-    return reshapedSchedule;
+    return reshapeSchedule(schedule);
   } catch (err) {
     return console.error('Error', err);
   }

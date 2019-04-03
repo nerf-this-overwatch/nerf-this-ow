@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+import { mount, route } from 'navi';
 
 import { useMatchStringFromDate } from '../../hooks/schedule';
 
@@ -27,4 +28,8 @@ const ResultsWidget = () => {
   );
 };
 
-export default ResultsWidget;
+export default mount({
+  '/': route({
+    view: <ResultsWidget />,
+  }),
+});

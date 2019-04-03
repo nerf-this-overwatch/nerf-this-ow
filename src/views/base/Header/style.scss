@@ -1,0 +1,25 @@
+@import '../../../style/colors';
+
+.header {
+  background-color: $purple;
+  color: $white;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  margin-top: -12.5px;
+}
+
+.header a {
+  color: inherit;
+}
+
+.header nav a {
+  margin-left: 16px;
+}

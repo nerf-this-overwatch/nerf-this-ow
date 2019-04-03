@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { mount, route } from 'navi';
 
 import PlayersRatingForm from '../../components/PlayersRatingForm';
 import TeamTheme from '../../components/TeamTheme';
@@ -32,4 +33,8 @@ const PlayersRatingWidget = () => {
   );
 };
 
-export default PlayersRatingWidget;
+export default mount({
+  '/': route({
+    view: <PlayersRatingWidget />,
+  }),
+});

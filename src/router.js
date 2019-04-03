@@ -6,8 +6,7 @@ import Header from './views/base/Header';
 import { ApiProvider } from './containers/ApiContext';
 
 const routes = mount({
-  '/': lazy(() => import('./views/Home')),
-  '/widget-results': lazy(() => import('./views/ResultsWidget')),
+  '/': lazy(() => import('./views/ResultsWidget')),
   '/podcast-cover-results': lazy(() => import('./views/PodcastCoverWidget')),
   '/players-rating': lazy(() => import('./views/PlayersRatingWidget')),
 });

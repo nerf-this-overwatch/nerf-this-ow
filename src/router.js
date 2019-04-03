@@ -12,7 +12,7 @@ const routes = mount({
 });
 
 const Router = () => (
-  <RouterWrapper routes={routes}>
+  <RouterWrapper basename={process.env.REACT_APP_ROUTER_BASENAME} routes={routes}>
     <Header />
 
     <Suspense fallback={null}>

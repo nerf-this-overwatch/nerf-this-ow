@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-navi';
 
 import Logo from '../../../components/Logo';
+import Link from '../../../components/Link';
 
 import './style.scss';
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { mount, route } from 'navi';
 
 import FormGroup from '../../components/FormGroup';
 import ImageFormGroup from '../../components/ImageFormGroup';
@@ -44,4 +45,8 @@ const PodcastCoverWidget = () => {
   );
 };
 
-export default PodcastCoverWidget;
+export default mount({
+  '/': route({
+    view: <PodcastCoverWidget />,
+  }),
+});

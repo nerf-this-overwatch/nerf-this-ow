@@ -1,76 +1,38 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Formik } from 'formik';
 
 import './style.scss';
-import Button from '../Button';
 import { useImageGeneration } from '../../hooks/image';
 
-// Wrapper
-const WidgetLayout = ({ children, imageName, imageSize }) => {
+const WidgetLayout = ({ initialValues, validationSchema, renderWidget, imageSize, name, children }) => {
   const previewRef = useRef();
-  const [generateImage] = useImageGeneration(previewRef, imageName, imageSize);
+  const [generateImage] = useImageGeneration(previewRef, name, imageSize);
 
   return (
-    <div className="widget-layout">
-      {React.Children.map(children, child =>
-        React.cloneElement(child, {
-          previewRef,
-          onSubmit: generateImage,
-        })
+    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={generateImage}>
+      {formikBag => (
+        <div className="widget-layout">
+          <div className="widget-layout__preview" ref={previewRef}>
+            {renderWidget(formikBag.values)}
+          </div>
+          <div className="widget-layout__form">{children}</div>
+        </div>
       )}
-    </div>
+    </Formik>
   );
-};
-
-WidgetLayout.propTypes = {
-  children: PropTypes.any.isRequired,
-  imageName: PropTypes.string.isRequired,
-  imageSize: PropTypes.shape({
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-  }),
-};
-
-WidgetLayout.defaultProps = {
-  imageSize: undefined,
 };
 
 export default WidgetLayout;
 
-// Preview
-export const WidgetLayoutPreview = ({ children, previewRef }) => (
-  <div className="widget-layout__preview" ref={previewRef}>
-    {children}
-  </div>
-);
-
-WidgetLayoutPreview.propTypes = {
+WidgetLayout.propTypes = {
+  initialValues: PropTypes.object.isRequired,
+  validationSchema: PropTypes.object.isRequired,
+  renderWidget: PropTypes.func.isRequired,
   children: PropTypes.any.isRequired,
-  previewRef: PropTypes.object,
-};
-
-WidgetLayoutPreview.defaultProps = {
-  previewRef: undefined,
-};
-
-// Form
-export const WidgetLayoutForm = ({ onSubmit, children }) => (
-  <form className="widget-layout__form" onSubmit={onSubmit}>
-    {children}
-
-    <div>
-      <Button type="submit" theme="primary">
-        Generate Image
-      </Button>
-    </div>
-  </form>
-);
-
-WidgetLayoutForm.propTypes = {
-  children: PropTypes.any.isRequired,
-  onSubmit: PropTypes.func,
-};
-
-WidgetLayoutForm.defaultProps = {
-  onSubmit: () => undefined,
+  imageSize: PropTypes.shape({
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+  }).isRequired,
+  name: PropTypes.string.isRequired,
 };

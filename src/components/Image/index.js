@@ -12,19 +12,19 @@ const Image = ({ src, size, ...props }) => {
 
   useEffect(
     () => {
-      if (!src) return null;
+      if (src) {
+        const imageDom = document.createElement('img');
+        imageDom.setAttribute('src', src);
 
-      const imageDom = document.createElement('img');
-      imageDom.setAttribute('src', src);
+        imageDom.onload = () => {
+          const { naturalWidth, naturalHeight } = imageDom;
 
-      imageDom.onload = () => {
-        const { naturalWidth, naturalHeight } = imageDom;
-
-        setSrcSize({
-          width: naturalWidth,
-          height: naturalHeight,
-        });
-      };
+          setSrcSize({
+            width: naturalWidth,
+            height: naturalHeight,
+          });
+        };
+      }
     },
     [src]
   );

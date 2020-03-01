@@ -1,0 +1,27 @@
+.input-field {
+  display: flex;
+  margin: 0 0 2rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-field__label {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  padding: 0 0.5rem;
+  margin: 0 -0.5rem;
+}
+
+.input-field__input {
+  align-self: stretch;
+}
+
+.input-field__error {
+  background-color: red;
+  margin: 0.5rem 0 0;
+  color: white;
+  align-items: stretch;
+  padding: 0.25rem;
+}

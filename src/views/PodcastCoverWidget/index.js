@@ -1,49 +1,54 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { mount, route } from 'navi';
+import * as Yup from 'yup';
+import { Form } from 'formik';
 
-import FormGroup from '../../components/FormGroup';
-import ImageFormGroup from '../../components/ImageFormGroup';
+import WidgetLayout from '../../components/WidgetLayout';
 import PodcastCover from '../../components/PodcastCover';
-import WidgetLayout, { WidgetLayoutPreview, WidgetLayoutForm } from '../../components/WidgetLayout';
+import Button from '../../components/Button';
+import InputField from '../../components/Form/InputField';
+import CheckboxField from '../../components/Form/CheckboxField';
+import ImageField from '../../components/Form/ImageField';
+
 import './index.scss';
 
-const PodcastCoverWidget = () => {
-  const [title, setTitle] = useState('');
-  const [number, setNumber] = useState('0');
-  const [guest, setGuest] = useState('');
-  const [image, setImage] = useState();
-  const [isModeHeadliner, setIsModeHeadliner] = useState(false);
-
-  return (
-    <WidgetLayout imageName={`nerf-this-episode-${number}`} imageSize={{ width: 500, height: 500 }}>
-      <WidgetLayoutPreview>
-        <PodcastCover number={number} guest={guest} title={title} image={image} isModeHeadliner={isModeHeadliner} />
-      </WidgetLayoutPreview>
-
-      <WidgetLayoutForm>
-        <FormGroup value={title} id="title" label="Titre" onChange={e => setTitle(e.target.value)} />
-        <FormGroup
-          value={number}
-          id="episode-numner"
-          label="Numéro d'épisode"
-          type="number"
-          onChange={e => setNumber(e.target.value)}
-        />
-        <FormGroup value={guest} id="guest" label="Invité" onChange={e => setGuest(e.target.value)} />
-
-        <FormGroup
-          value={isModeHeadliner}
-          type="checkbox"
-          id="isModeHeadliner"
-          label="Mode Headliner"
-          onChange={e => setIsModeHeadliner(e.target.checked)}
-        />
-
-        <ImageFormGroup id="image" onChange={url => setImage(url)} />
-      </WidgetLayoutForm>
-    </WidgetLayout>
-  );
+const initialValues = {
+  title: '',
+  number: 0,
+  guest: '',
+  isModeHeadliner: false,
+  image: '',
 };
+
+const validationSchema = Yup.object({
+  title: Yup.string().max(100, 'Ton titre est trop long'),
+  number: Yup.number(),
+  guest: Yup.string(),
+  isModeHeadliner: Yup.boolean(),
+  image: Yup.string(),
+});
+
+const PodcastCoverWidget = () => (
+  <WidgetLayout
+    renderWidget={PodcastCover}
+    initialValues={initialValues}
+    validationSchema={validationSchema}
+    name="podcast-cover"
+    imageSize={{ width: 500, height: 500 }}
+  >
+    <Form>
+      <InputField label="Titre de l'épisode" name="title" />
+      <InputField label="Numéro de l'épisode" name="number" type="number" />
+      <InputField label="Invité" name="guest" />
+      <CheckboxField label="Mode headline" name="isModeHeadliner" />
+      <ImageField label="Image" name="image" />
+
+      <Button type="submit" theme="primary">
+        Générer l'image
+      </Button>
+    </Form>
+  </WidgetLayout>
+);
 
 export default mount({
   '/': route({

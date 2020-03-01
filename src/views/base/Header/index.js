@@ -12,8 +12,7 @@ const Header = () => (
     </Link>
 
     <nav>
-      <Link href="/">Programme / Résultats</Link>
-      <Link href="/podcast-cover-results">Podcast Cover</Link>
+      <Link href="/">Podcast Cover</Link>
     </nav>
   </header>
 );

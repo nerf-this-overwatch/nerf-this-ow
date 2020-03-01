@@ -3,11 +3,9 @@ import React, { Suspense } from 'react';
 import { Router as RouterWrapper, View } from 'react-navi';
 
 import Header from './views/base/Header';
-import { ApiProvider } from './containers/ApiContext';
 
 const routes = mount({
-  '/': lazy(() => import('./views/ResultsWidget')),
-  '/podcast-cover-results': lazy(() => import('./views/PodcastCoverWidget')),
+  '/': lazy(() => import('./views/PodcastCoverWidget')),
 });
 
 const Router = () => (
@@ -15,9 +13,7 @@ const Router = () => (
     <Header />
 
     <Suspense fallback={null}>
-      <ApiProvider>
-        <View />
-      </ApiProvider>
+      <View />
     </Suspense>
   </RouterWrapper>
 );

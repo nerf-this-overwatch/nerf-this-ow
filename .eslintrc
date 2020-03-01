@@ -85,6 +85,7 @@
       }
     ],
     "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/label-has-for": "off",
     "jsx-a11y/anchor-is-valid": [
       "warn",
       {

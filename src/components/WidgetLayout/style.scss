@@ -1,8 +1,7 @@
 @import '../../style/colors';
 
 .widget-layout {
-  display: flex;
-  align-items: center;
+  margin: 7rem auto;
 }
 
 .widget-layout__preview {
@@ -11,6 +10,12 @@
 }
 
 .widget-layout__form {
-  max-width: 300px;
-  margin-left: 1rem;
+  max-width: 30rem;
+  margin: 0 auto 3rem;
+}
+
+.widget-layout__submit-btn {
+  margin-left: auto;
+  display: block;
+  margin-top: 1rem;
 }

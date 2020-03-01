@@ -1,11 +1,9 @@
 import React from 'react';
 import { mount, route } from 'navi';
 import * as Yup from 'yup';
-import { Form } from 'formik';
 
 import WidgetLayout from '../../components/WidgetLayout';
 import PodcastCover from '../../components/PodcastCover';
-import Button from '../../components/Button';
 import InputField from '../../components/Form/InputField';
 import CheckboxField from '../../components/Form/CheckboxField';
 import ImageField from '../../components/Form/ImageField';
@@ -36,17 +34,11 @@ const PodcastCoverWidget = () => (
     name="podcast-cover"
     imageSize={{ width: 500, height: 500 }}
   >
-    <Form>
-      <InputField label="Titre de l'épisode" name="title" />
-      <InputField label="Numéro de l'épisode" name="number" type="number" />
-      <InputField label="Invité" name="guest" />
-      <CheckboxField label="Mode headline" name="isModeHeadliner" />
-      <ImageField label="Image" name="image" />
-
-      <Button type="submit" theme="primary">
-        Générer l'image
-      </Button>
-    </Form>
+    <InputField label="Titre de l'épisode" name="title" />
+    <InputField label="Numéro de l'épisode" name="number" type="number" />
+    <InputField label="Invité" name="guest" />
+    <CheckboxField label="Mode headline" name="isModeHeadliner" />
+    <ImageField label="Image" name="image" />
   </WidgetLayout>
 );
 

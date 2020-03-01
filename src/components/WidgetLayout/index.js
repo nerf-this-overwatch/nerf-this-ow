@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 
 import './style.scss';
 import { useImageGeneration } from '../../hooks/image';
+import Button from '../Button';
 
 const WidgetLayout = ({ initialValues, validationSchema, renderWidget, imageSize, name, children }) => {
   const previewRef = useRef();
@@ -12,12 +13,19 @@ const WidgetLayout = ({ initialValues, validationSchema, renderWidget, imageSize
   return (
     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={generateImage}>
       {formikBag => (
-        <div className="widget-layout">
-          <div className="widget-layout__preview" ref={previewRef}>
-            {renderWidget(formikBag.values)}
+        <Form>
+          <div className="widget-layout">
+            <div className="widget-layout__form">{children}</div>
+
+            <div className="widget-layout__preview" ref={previewRef}>
+              {renderWidget(formikBag.values)}
+            </div>
+
+            <Button className="widget-layout__submit-btn" type="submit" theme="primary">
+              Générer l'image
+            </Button>
           </div>
-          <div className="widget-layout__form">{children}</div>
-        </div>
+        </Form>
       )}
     </Formik>
   );

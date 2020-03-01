@@ -29,25 +29,27 @@ const InputField = ({ label, ...props }) => {
     <label className="image-field" htmlFor={props.id || props.name}>
       <span className="image-field__label">{label}</span>
 
-      <Button className="image-field__button" onClick={handleButtonClick}>
-        Choisir une image
-      </Button>
+      <div className="image-field__row">
+        <Button className="image-field__button" onClick={handleButtonClick}>
+          Choisir une image
+        </Button>
 
-      <input
-        tabIndex="-1"
-        className="image-field__file-input"
-        type="file"
-        onChange={onFileInputChange}
-        ref={fileInput}
-      />
-      <Input
-        className="image-form__paste-input"
-        onPaste={handleTextInputPaste}
-        onChange={() => null}
-        value={field.value}
-        type="text"
-        placeholder="Coller l'url d'une image"
-      />
+        <input
+          tabIndex="-1"
+          className="image-field__file-input"
+          type="file"
+          onChange={onFileInputChange}
+          ref={fileInput}
+        />
+        <Input
+          className="image-form__paste-input"
+          onPaste={handleTextInputPaste}
+          onChange={() => null}
+          value={field.value}
+          type="text"
+          placeholder="Coller l'url d'une image"
+        />
+      </div>
     </label>
   );
 };

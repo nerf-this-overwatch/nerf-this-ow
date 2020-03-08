@@ -1,17 +1,23 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
+import * as R from 'ramda';
 
 import './style.scss';
 import { useImageGeneration } from '../../hooks/image';
 import Button from '../Button';
 
-const WidgetLayout = ({ initialValues, validationSchema, renderWidget, imageSize, name, children }) => {
+const WidgetLayout = ({ initialValues, validationSchema, renderWidget, imageSize, getName, children }) => {
   const previewRef = useRef();
-  const [generateImage] = useImageGeneration(previewRef, name, imageSize);
+  const [generateImage] = useImageGeneration(previewRef, imageSize);
+
+  const handleSubmit = R.compose(
+    generateImage,
+    getName
+  );
 
   return (
-    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={generateImage}>
+    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
       {formikBag => (
         <Form>
           <div className="widget-layout">
@@ -42,5 +48,5 @@ WidgetLayout.propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
   }).isRequired,
-  name: PropTypes.string.isRequired,
+  getName: PropTypes.func.isRequired,
 };

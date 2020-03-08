@@ -2,6 +2,7 @@ import React from 'react';
 import { mount, route } from 'navi';
 import * as Yup from 'yup';
 import { FieldArray } from 'formik';
+import * as R from 'ramda';
 
 import WidgetLayout from '../../components/WidgetLayout';
 import Schedule from '../../components/Schedule';
@@ -63,11 +64,10 @@ const ScheduleWidget = () => (
     renderWidget={Schedule}
     initialValues={initialValues}
     validationSchema={validationSchema}
-    name="schedule"
+    getName={({ week }) => `schedule-week-${week}`}
     imageSize={{ width: 1000, height: 500 }}
   >
     <InputField label="Semaine" name="week" type="number" />
-
     <FieldArray name="games" component={GamesFieldArray} />
   </WidgetLayout>
 );

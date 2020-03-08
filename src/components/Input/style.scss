@@ -6,10 +6,15 @@
   border: 0;
   border-top: 2px solid transparent;
   border-bottom: 2px solid $purple;
+  height: 40px;
 
   &:focus {
-      outline: 0;
-      border-bottom-color: transparent;
-      box-shadow: 0 0 0 2px $white, 0 0 0 5px $pink;
+    outline: 0;
+    border-bottom-color: transparent;
+    box-shadow: 0 0 0 2px $white, 0 0 0 5px $pink;
+  }
+
+  &[type="datetime-local"] {
+    font-family: inherit;
   }
 }

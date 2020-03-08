@@ -6,6 +6,7 @@ import Header from './views/base/Header';
 
 const routes = mount({
   '/': lazy(() => import('./views/PodcastCoverWidget')),
+  '/schedule': lazy(() => import('./views/ScheduleWidget')),
 });
 
 const Router = () => (

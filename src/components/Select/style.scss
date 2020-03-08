@@ -1,0 +1,22 @@
+@import '../../style/colors.scss';
+
+.select {
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  padding: 0;
+  border: 0;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid #140a43;
+  border-radius: 0;
+  line-height: 2.2em;
+  height: 40px;
+  appearance: none;
+  background-color: transparent;
+
+  &:focus {
+    outline: 0;
+    border-bottom-color: transparent;
+    box-shadow: 0 0 0 2px $white, 0 0 0 5px $pink;
+  }
+}

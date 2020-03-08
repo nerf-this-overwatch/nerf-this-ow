@@ -1,0 +1,25 @@
+@import '../../../style/colors';
+
+.game-field {
+  padding: 1rem;
+  margin: 0 0 1rem;
+}
+
+.game-field,
+.game-field .input-field__label,
+.game-field .input {
+  background-color: $grey;
+}
+
+.game-field__team-row {
+  display: flex;
+}
+
+.game-field__team-name {
+  flex-grow: 1;
+  margin-right: 1rem;
+}
+
+.game-field__team-score {
+  flex-basis: 8rem;
+}

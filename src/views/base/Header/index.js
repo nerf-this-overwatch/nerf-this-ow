@@ -13,6 +13,7 @@ const Header = () => (
 
     <nav>
       <Link href="/">Podcast Cover</Link>
+      <Link href="/schedule">Programme</Link>
     </nav>
   </header>
 );

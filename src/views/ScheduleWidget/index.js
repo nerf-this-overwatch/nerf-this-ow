@@ -2,7 +2,6 @@ import React from 'react';
 import { mount, route } from 'navi';
 import * as Yup from 'yup';
 import { FieldArray } from 'formik';
-import * as R from 'ramda';
 
 import WidgetLayout from '../../components/WidgetLayout';
 import Schedule from '../../components/Schedule';

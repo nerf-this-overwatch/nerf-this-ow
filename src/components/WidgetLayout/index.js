@@ -7,7 +7,7 @@ import './style.scss';
 import { useImageGeneration } from '../../hooks/image';
 import Button from '../Button';
 
-const WidgetLayout = ({ initialValues, validationSchema, renderWidget, imageSize, getName, children }) => {
+const WidgetLayout = ({ initialValues, validationSchema, renderWidget, imageSize, getName, children, name }) => {
   const previewRef = useRef();
   const [generateImage] = useImageGeneration(previewRef, imageSize);
 
@@ -20,7 +20,7 @@ const WidgetLayout = ({ initialValues, validationSchema, renderWidget, imageSize
     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
       {formikBag => (
         <Form>
-          <div className="widget-layout">
+          <div className={`widget-layout widget-layout--${name}`}>
             <div className="widget-layout__form">{children}</div>
 
             <div className="widget-layout__preview" ref={previewRef}>
@@ -49,4 +49,9 @@ WidgetLayout.propTypes = {
     height: PropTypes.number.isRequired,
   }).isRequired,
   getName: PropTypes.func.isRequired,
+  name: PropTypes.string,
+};
+
+WidgetLayout.defaultProps = {
+  name: 'generic',
 };

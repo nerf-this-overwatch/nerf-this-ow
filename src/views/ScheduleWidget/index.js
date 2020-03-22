@@ -67,6 +67,7 @@ const ScheduleWidget = () => (
     validationSchema={validationSchema}
     getName={({ week }) => `schedule-week-${week}`}
     imageSize={{ width: 1000, height: 500 }}
+    name="schedule"
   >
     <InputField label="Semaine" name="week" type="number" />
     <InputField label="Jour" name="day" type="date" />
@@ -82,7 +83,11 @@ const ScheduleWidget = () => (
 
 const ScheduleWidgetGameFieldArray = () => {
   const { values } = useFormikContext();
-  return <FieldArray name="games" render={helpers => <GamesFieldArray type={values.type} {...helpers} />} />;
+  return (
+    <div className="field-array__grid">
+      <FieldArray name="games" render={helpers => <GamesFieldArray type={values.type} {...helpers} />} />
+    </div>
+  );
 };
 
 export default mount({

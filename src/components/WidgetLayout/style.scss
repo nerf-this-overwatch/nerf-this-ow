@@ -2,6 +2,9 @@
 
 .widget-layout {
   margin: 7rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .widget-layout__preview {
@@ -18,4 +21,17 @@
   margin-left: auto;
   display: block;
   margin-top: 1rem;
+}
+
+.widget-layout--schedule .widget-layout__form {
+  max-width: 100vw;
+  width: 100%;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 0 1rem;
+}
+
+.widget-layout--schedule .widget-layout__form .field-array__grid {
+  grid-column: 1/-1;
 }

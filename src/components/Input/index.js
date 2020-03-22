@@ -15,7 +15,7 @@ const Input = ({ className, ...props }) => (
 );
 
 Input.propTypes = {
-  type: PropTypes.oneOf(['text', 'number', 'file', 'checkbox', 'date', 'datetime-local']),
+  type: PropTypes.oneOf(['text', 'number', 'file', 'checkbox', 'date', 'datetime-local', 'time']),
   className: PropTypes.string,
 };
 

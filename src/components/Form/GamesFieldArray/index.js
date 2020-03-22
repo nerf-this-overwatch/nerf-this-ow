@@ -18,18 +18,20 @@ export const getInitialGame = () => ({
     team: '',
     score: '',
   },
-  date: '',
+  time: '',
 });
 
-const GamesFieldArray = ({ name, push, remove, form }) => {
+const GamesFieldArray = ({ name, push, remove, form, type }) => {
   const games = form.values[name];
   const handleAddClick = () => push(getInitialGame());
+  const isSchedule = type === 'schedule';
+  const isResults = type === 'results';
 
   return (
     <React.Fragment>
       {games.map((game, index) => (
         <div className="game-field" key={game.id}>
-          <InputField label="Date" name={`games[${index}].date`} type="datetime-local" />
+          {isSchedule && <InputField label="Heure" name={`games[${index}].time`} type="time" />}
 
           <div className="game-field__team-row">
             <TeamSelectField
@@ -37,14 +39,17 @@ const GamesFieldArray = ({ name, push, remove, form }) => {
               label="Équipe à domicile"
               name={`games[${index}].home.team`}
             />
-            <InputField
-              label="Score"
-              className="game-field__team-score"
-              name={`games[${index}].home.score`}
-              type="number"
-              min="0"
-              max="3"
-            />
+
+            {isResults && (
+              <InputField
+                label="Score"
+                className="game-field__team-score"
+                name={`games[${index}].home.score`}
+                type="number"
+                min="0"
+                max="3"
+              />
+            )}
           </div>
 
           <div className="game-field__team-row">
@@ -53,14 +58,16 @@ const GamesFieldArray = ({ name, push, remove, form }) => {
               label="Équipe à l'extérieur"
               name={`games[${index}].away.team`}
             />
-            <InputField
-              label="Score"
-              className="game-field__team-score"
-              name={`games[${index}].away.score`}
-              type="number"
-              min="0"
-              max="3"
-            />
+            {isResults && (
+              <InputField
+                label="Score"
+                className="game-field__team-score"
+                name={`games[${index}].away.score`}
+                type="number"
+                min="0"
+                max="3"
+              />
+            )}
           </div>
 
           <Button type="button" onClick={() => remove(index)}>
@@ -83,4 +90,9 @@ GamesFieldArray.propTypes = {
   form: PropTypes.object.isRequired,
   push: PropTypes.func.isRequired,
   remove: PropTypes.func.isRequired,
+  type: PropTypes.oneOf(['schedule', 'results']),
+};
+
+GamesFieldArray.defaultProps = {
+  type: 'schedule',
 };

@@ -14,6 +14,8 @@ const TeamSelectField = ({ label, className, ...props }) => {
     <label className={`input-field ${className}`} htmlFor={props.id || props.name}>
       {!!label && <span className="input-field__label">{label}</span>}
       <Select className="input-field__select" {...field} {...props}>
+        {field.value === '' && <option>CHOOSE TEAM</option>}
+
         {TEAMS.allIds.map(teamId => {
           const team = TEAMS.byId[teamId];
 

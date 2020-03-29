@@ -5,7 +5,6 @@ import './index.scss';
 
 const CheckboxField = ({ label, ...props }) => {
   const [field, meta] = useField({ ...props, type: 'checkbox' });
-  console.log({ field, meta });
   return (
     // eslint-disable-next-line react/destructuring-assignment
     <label className="checkbox-field" htmlFor={props.id || props.name}>

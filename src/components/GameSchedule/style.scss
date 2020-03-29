@@ -1,0 +1,88 @@
+@import '../../style/colors';
+
+.game-schedule {
+  --border: 1px solid #{$purple-light};
+  --bg-color: #{$purple-dark};
+  display: grid;
+  border: var(--border);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  width: 100%;
+  background-color: var(--bg-color);
+  grid-template-columns: auto 1fr auto 1fr;
+  height: 100%;
+  max-height: 70px;
+  min-height: 54px;
+}
+
+.game-schedule__time {
+  font-weight: bold;
+  padding: 0 1em;
+  background-color: $pink;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+.game-schedule__team-separator {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.game-schedule__team {
+  align-items: center;
+  display: flex;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.game-schedule__team--away {
+  flex-direction: row-reverse;
+}
+
+.game-schedule__team--home .game-schedule__team-name::before {
+  content: ' ';
+  white-space: pre;
+}
+
+.game-schedule__team-name {
+  font-weight: bold;
+}
+
+.game-schedule__team--home > *:first-child {
+  margin-left: 1em;
+}
+
+.game-schedule__team--away > *:first-child {
+  margin-right: 1em;
+}
+
+.game-schedule__team--away .game-schedule__team-city::after {
+  content: ' ';
+  white-space: pre;
+}
+
+.game-schedule__team-logo-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-schedule__team--away .game-schedule__team-logo-wrapper {
+  right: -1px;
+  left: auto;
+}
+
+.game-schedule__team-logo {
+  height: 0.8em;
+}

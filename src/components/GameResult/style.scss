@@ -1,0 +1,76 @@
+@import '../../style/colors';
+
+.game-result {
+  --border: 1px solid #{$purple-light};
+  --bg-color: #{$purple-dark};
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  border: var(--border);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  max-height: 120px;
+  height: 100%;
+}
+
+.game-result__team {
+  flex-grow: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-result__team + .game-result__team {
+  border-top: var(--border);
+}
+
+.game-result__team-title {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 0 1em;
+  font-size: 0.9em;
+  flex-grow: 1;
+}
+
+.game-result__team-name {
+  font-weight: bold;
+
+  &::before {
+    content: ' ';
+    white-space: pre;
+  }
+}
+
+.game-result__team-score {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  padding: 0 0.75em;
+  font-variant-numeric: tabular-nums;
+}
+
+.game-result__team-score--invisible {
+  color: var(--bg-color);
+}
+
+.game-result__team-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.game-result__team-logo {
+  height: 0.8em;
+}
+
+.game-result__team-bg {
+  height: 100%;
+  width: auto;
+}

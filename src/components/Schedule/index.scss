@@ -3,6 +3,86 @@
 .schedule {
   height: 500px;
   width: 1000px;
-  background-image: linear-gradient(285deg, rgba(57, 57, 57, 0.04) 0%, rgba(57, 57, 57, 0.04) 25%,rgba(126, 126, 126, 0.04) 25%, rgba(126, 126, 126, 0.04) 50%,rgba(80, 80, 80, 0.04) 50%, rgba(80, 80, 80, 0.04) 75%,rgba(117, 117, 117, 0.04) 75%, rgba(117, 117, 117, 0.04) 100%),linear-gradient(333deg, rgba(26, 26, 26, 0.04) 0%, rgba(26, 26, 26, 0.04) 25%,rgba(154, 154, 154, 0.04) 25%, rgba(154, 154, 154, 0.04) 50%,rgba(218, 218, 218, 0.04) 50%, rgba(218, 218, 218, 0.04) 75%,rgba(91, 91, 91, 0.04) 75%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(45deg, rgba(14, 14, 14, 0.04) 0%, rgba(14, 14, 14, 0.04) 25%,rgba(216, 216, 216, 0.04) 25%, rgba(216, 216, 216, 0.04) 50%,rgba(44, 44, 44, 0.04) 50%, rgba(44, 44, 44, 0.04) 75%,rgba(111, 111, 111, 0.04) 75%, rgba(111, 111, 111, 0.04) 100%),linear-gradient(251deg, rgba(27, 27, 27, 0.04) 0%, rgba(27, 27, 27, 0.04) 25%,rgba(107, 107, 107, 0.04) 25%, rgba(107, 107, 107, 0.04) 50%,rgba(167, 167, 167, 0.04) 50%, rgba(167, 167, 167, 0.04) 75%,rgba(34, 34, 34, 0.04) 75%, rgba(34, 34, 34, 0.04) 100%),linear-gradient(63deg, rgba(114, 114, 114, 0.04) 0%, rgba(114, 114, 114, 0.04) 25%,rgba(16, 16, 16, 0.04) 25%, rgba(16, 16, 16, 0.04) 50%,rgba(190, 190, 190, 0.04) 50%, rgba(190, 190, 190, 0.04) 75%,rgba(159, 159, 159, 0.04) 75%, rgba(159, 159, 159, 0.04) 100%),linear-gradient(90deg, rgb(44, 69, 142),rgb(133, 17, 234));
   position: relative;
+  background-color: $purple;
+  color: $white;
+  background-image: linear-gradient(74deg, #130A42 30%, #A40B5A 100%);
+}
+
+.schedule__pattern {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.schedule__content {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule__heading {
+  font-family: 'Peace Sans';
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: normal;
+  // font-size: 1.7rem;
+  font-size: 27px;
+  font-smooth: always;
+}
+
+.schedule__sub-heading {
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.06205em;
+}
+
+.schedule__head {
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.schedule__nf-logo {
+  height: 3rem;
+  margin-top: -1.25rem;
+}
+
+.schedule__body {
+  flex-grow: 1;
+  align-items: center;
+}
+
+.schedule__body--schedule-layout {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-gap: 0.5rem;
+}
+
+.schedule__body--schedule-layout.schedule__body--simple {
+  max-width: 800px;
+  margin: auto;
+  width: 100%;
+}
+
+.schedule__body--schedule-layout.schedule__body--complex {
+  grid-template-columns: 1fr 1fr;
+}
+
+.schedule__body--results-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.schedule__body--results-layout.schedule__body--complex {
+  grid-template-columns: 1fr 1fr 1fr;
 }

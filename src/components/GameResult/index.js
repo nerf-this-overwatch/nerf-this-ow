@@ -40,7 +40,7 @@ const GameResult = ({ game, style, ...props }) => {
           <span className="game-result__team-name">{homeTeam.name}</span>
         </div>
 
-        <div className={`game-result__team-score ${!game.home.score && 'game-result__team-score--invisible'}`}>
+        <div className={`game-result__team-score ${R.isNil(game.home.score) && 'game-result__team-score--invisible'}`}>
           {game.home.score || 0}
         </div>
       </div>
@@ -58,7 +58,7 @@ const GameResult = ({ game, style, ...props }) => {
           <span className="game-result__team-name">{awayTeam.name}</span>
         </div>
 
-        <div className={`game-result__team-score ${!game.away.score && 'game-result__team-score--invisible'}`}>
+        <div className={`game-result__team-score ${R.isNil(game.away.score) && 'game-result__team-score--invisible'}`}>
           {game.away.score || 0}
         </div>
       </div>

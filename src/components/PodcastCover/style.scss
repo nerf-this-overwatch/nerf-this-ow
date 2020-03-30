@@ -98,18 +98,23 @@
 .podcast-cover__title {
   margin: 30px 0 0;
   font-size: 26px;
+  font-weight: 900;
+  font-style: italic;
   font-family: 'Lato', sans-serif;
 }
 
 .podcast-cover__guest {
   margin: 0;
   font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-style: italic;
   font-size: 30px;
 }
 
 .podcast-cover__guest-name {
   font-family: 'Peace Sans';
   text-transform: uppercase;
+  font-style: initial;
   color: $pink-dark;
   font-weight: 400;
 }

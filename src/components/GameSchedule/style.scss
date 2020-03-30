@@ -46,7 +46,7 @@
 }
 
 .game-schedule__team--home .game-schedule__team-name::before {
-  content: ' ';
+  content: '  ';
   white-space: pre;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .game-schedule__team--away .game-schedule__team-city::after {
-  content: ' ';
+  content: '  ';
   white-space: pre;
 }
 
